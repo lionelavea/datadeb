@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('datadeb.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    overflow: hidden; /* Prevents any background overflow */
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    position: relative; /* Ensures that the container and its contents are not affected by the background zoom */
+    z-index: 10; /* Keeps the content on top of the background */
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px; /* Space between the title and the subtitle */
+}
+
+.header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; /* Increase the space between the category items */
+    margin-bottom: 40px;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.category img {
+    width: 50px;
+    height: 50px;
+}
+
+.category p {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.category:hover {
+    transform: scale(1.1);
+}
+
+.footer {
+    display: flex;
+    gap: 20px;
+    margin-top: auto;
+}
+
+.footer a img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer a {
+    transition: transform 0.3s ease;
+}
+
+.footer a:hover {
+    transform: scale(1.2);
+}
+
+
+/* Background animation - only affects the background, not content */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('datadeb.webp') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1; /* Places the background behind the content */
+    animation: zoomInOut 30s infinite ease-in-out;
+}
+
+@keyframes zoomInOut {
+    0% {
+        background-size: 100%;
+    }
+    50% {
+        background-size: 110%;
+    }
+    100% {
+        background-size: 100%;
+    }
+}
